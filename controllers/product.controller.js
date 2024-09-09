@@ -9,7 +9,7 @@ const getProducts = async (req, res) => {
     }
 }
 
-const getSingleProduct = async () => {
+const getProductById = async (req, res) => {
     try {
         const { id } = req.params;
         const product = await Product.findById(id)
@@ -19,7 +19,7 @@ const getSingleProduct = async () => {
     }
 }
 
-const createProduct = async () => {
+const createProduct = async (req, res) => {
     try {
         const product = await Product.create(req.body)
         res.status(200).json(product)
@@ -28,7 +28,7 @@ const createProduct = async () => {
     }
 }
 
-const updateProduct = async () => {
+const updateProduct = async (req, res) => {
     try {
         const { id } = req.params;
         const product = await Product.findByIdAndUpdate(id, req.body);
@@ -46,7 +46,7 @@ const updateProduct = async () => {
     }
 }
 
-const deleteProduct = async () => {
+const deleteProduct = async (req, res) => {
     try {
         const { id } = req.params;
         const product = await Product.findByIdAndDelete(id);
@@ -63,4 +63,4 @@ const deleteProduct = async () => {
     }
 }
 
-module.exports = { getProducts, getSingleProduct, createProduct, updateProduct, deleteProduct }
+module.exports = { getProducts, getProductById, createProduct, updateProduct, deleteProduct }

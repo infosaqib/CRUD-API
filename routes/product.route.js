@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-const { getProducts, getSingleProduct, createProduct, updateProduct, deleteProduct } = require('../controllers/product.controller');
+const { getProducts, getProductById, createProduct, updateProduct, deleteProduct } = require('../controllers/product.controller');
 
 
 //READ ALL
 router.get('/', getProducts)
 
 //READ BY ID
-router.get('/:id', getSingleProduct)
+router.get('/:id', getProductById)
 
 //CREATE API
 router.post('/', createProduct)
